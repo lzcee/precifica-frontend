@@ -1,0 +1,99 @@
+/* Variables
+   ========================================================================== */
+:root {
+	--container-size: 24px;
+}
+
+@media (min-width: 768px) {
+	:root {
+		--container-size: 48px;
+	}
+}
+
+@media (min-width: 1200px) {
+	:root {
+		--container-size: 96px;
+	}
+}
+
+@media (min-width: 1440px) {
+	:root {
+		--container-size: calc((100% - 1174px) / 2);
+	}
+}
+
+/* Containers
+   ========================================================================== */
+
+.container {
+	margin-left: var(--container-size);
+	margin-right: var(--container-size);
+}
+
+/* Utils
+   ========================================================================== */
+
+.desktop {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+	margin: 0;
+}
+
+@media (min-width: 768px) {
+	.desktop {
+		display: block;
+	}
+
+	.mobile {
+		display: none;
+	}
+}
+
+/* Typography
+   ========================================================================== */
+
+@font-face {
+	font-family: "OpenSans";
+	src: url("../assets/fonts/OpenSans-Regular.woff2") format("woff2"),
+		url("../assets/fonts/OpenSans-Regular.woff") format("woff"),
+		url("../assets/fonts/OpenSans-Regular.ttf") format("truetype");
+	font-display: swap;
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: "OpenSans";
+	src: url("../assets/fonts/OpenSans-Bold.woff2") format("woff2"),
+		url("../assets/fonts/OpenSans-Bold.woff") format("woff"),
+		url("../assets/fonts/OpenSans-Bold.ttf") format("truetype");
+	font-display: swap;
+	font-weight: 700;
+}
+
+html {
+	font-size: 12px;
+	font-family: "OpenSans", sans-serif;
+}
+
+@media (min-width: 768px) {
+	html {
+		font-size: 14px;
+	}
+}
+
+@media (min-width: 1200px) {
+	html {
+		font-size: 16px;
+	}
+}
