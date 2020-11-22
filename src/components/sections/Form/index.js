@@ -60,6 +60,14 @@ const ErrorMessage = styled.p`
 const RegisterNow = styled.p`
 	text-align: center;
 	margin-top: 34px;
+
+	a {
+		color: #16617d
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
 `;
 
 const Form = ({ type, title, ...props }) => {
