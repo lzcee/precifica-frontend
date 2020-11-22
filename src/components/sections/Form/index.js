@@ -47,27 +47,72 @@ const Button = styled.button`
 	}
 `;
 
+const ErrorMessage = styled.p`
+	position: absolute;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+    font-weight: 700;
+    color: #cc4b4b;
+    bottom: -20px;
+`;
+
 const RegisterNow = styled.p`
 	text-align: center;
-	margin-top: 24px;
+	margin-top: 34px;
 `;
 
 const Form = ({ type, title, ...props }) => {
 
 	const [user, setUser] = useState({
-		user: {
-			name: "",
-			email: "",
-			password: ""
-		}
-	})
+		name: "",
+		email: "",
+		password: ""
+	});
 	const [error, setError] = useState("");
 
-	const handleChange = (event) => {
-		const handleUser = user;
-		handleUser[event.target.name] = event.target.value;
-		setUser(handleUser);
+	const validateEmail = (email) => {
+		var regex = /^[\w-s.]+@([\w-]+.)+[\w-]{2,4}$/;
+		return regex.test(String(email).toLowerCase());
 	};
+
+	const validatePassword = (password) => {
+		return password !== "" ? true : false;
+	};
+
+	const validateName = (name) => {
+		return name !== "" ? true : false;
+	};
+
+	const validateFields = () => {
+		console.log(user.email)
+		if (type === 'register' && validateName(user.name) && validateEmail(user.email) && validatePassword(user.password)) {
+			setError("");
+			return true;
+		}
+		else if (type === 'login' && validateEmail(user.email) && validatePassword(user.password)) {
+			setError("");
+			return true;
+		}
+		else {
+			setError("Ops! Verifique os campos antes de enviar!");
+			return false;
+		}
+	}
+
+	const handleChange = (event) => {
+		setUser({
+			...user,
+			[event.target.name]: event.target.value
+		});
+	};
+
+	const handleClick = (event) => {
+		event.preventDefault();
+		if (validateFields()) {
+			console.log('api.post')
+		}
+	}
 
 	return (
 		<Wrapper>
@@ -79,7 +124,6 @@ const Form = ({ type, title, ...props }) => {
 						type="text"
 						onChange={handleChange}
 						value={user.name}
-						error={error}
 						placeholder="Nome"
 					/>
 				}
@@ -88,7 +132,6 @@ const Form = ({ type, title, ...props }) => {
 					type="email"
 					onChange={handleChange}
 					value={user.email}
-					error={error}
 					placeholder="E-mail"
 				/>
 				<FormInput
@@ -96,10 +139,10 @@ const Form = ({ type, title, ...props }) => {
 					type="password"
 					onChange={handleChange}
 					value={user.password}
-					error={error}
 					placeholder="Senha"
 				/>
-				<Button>{type === 'login' ? 'Entrar' : 'Cadastrar'}</Button>
+				<Button type="submit" onClick={handleClick}>{type === 'login' ? 'Entrar' : 'Cadastrar'}</Button>
+				<ErrorMessage>{error}</ErrorMessage>
 			</FormWrapper>
 			{type === 'login' &&
 				<RegisterNow>

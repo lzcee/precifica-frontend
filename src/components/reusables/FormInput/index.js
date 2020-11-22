@@ -19,16 +19,10 @@ const Input = styled.input`
 	}
 `;
 
-const ErrorMessage = styled.p`
-	position: absolute;
-	font-size: 12px;
-`;
-
-const FormInput = ({ name, type, onChange, value, error, placeholder, ...props }) => {
+const FormInput = ({ name, type, onChange, value, placeholder, ...props }) => {
 	return (
 		<Wrapper>
-			<Input id={name} type={type} onChange={onChange} value={value} placeholder={placeholder}/>
-			{error && <ErrorMessage>{error}</ErrorMessage>}
+			<Input id={name} name={name} type={type} onChange={onChange} value={value} placeholder={placeholder}/>
 		</Wrapper>
 	)
 }
