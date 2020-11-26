@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { REGISTER_PATH } from '../../../config/routing/paths';
+
 import FormInput from '../../reusables/FormInput';
 import { Wrapper, Title, FormWrapper, Button, ErrorMessage, RegisterNow } from './style';
 
@@ -88,7 +90,7 @@ const Form = ({ type, title, ...props }) => {
 			</FormWrapper>
 			{type === 'login' &&
 				<RegisterNow>
-					Não tem uma conta? <Link>Cadastre-se</Link>
+					Não tem uma conta? <Link to={{ pathname: REGISTER_PATH }}>Cadastre-se</Link>
 				</RegisterNow>
 			}
 		</Wrapper>

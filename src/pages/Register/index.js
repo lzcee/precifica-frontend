@@ -3,13 +3,13 @@ import Logo from '../../components/reusables/Logo';
 
 import { FullBackground } from '../../styles/global';
 
-const Login = () => {
+const Register = () => {
 	return (
 		<FullBackground>
 			<Logo />
-			<Form type="login" title="Entrar" />
+			<Form type="register" title="Cadastre-se" />
 		</FullBackground>
 	)
 }
 
-export default Login;
+export default Register;

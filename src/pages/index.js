@@ -1,7 +1,9 @@
 import Login from './Login';
+import Register from './Register';
 
 const pages = {
-	Login
+	Login,
+	Register
 }
 
 export default pages;

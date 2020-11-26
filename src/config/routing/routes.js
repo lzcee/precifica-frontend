@@ -1,5 +1,5 @@
 import pages from '../../pages';
-import { LOGIN_PATH } from './paths';
+import { LOGIN_PATH, REGISTER_PATH } from './paths';
 
 const PAGE_LOGIN = {
 	component: pages.Login,
@@ -7,6 +7,12 @@ const PAGE_LOGIN = {
 	isPrivate: false
 }
 
-const routes = [PAGE_LOGIN];
+const PAGE_REGISTER = {
+	component: pages.Register,
+	path: REGISTER_PATH,
+	isPrivate: false
+}
+
+const routes = [PAGE_LOGIN, PAGE_REGISTER];
 
 export default routes;
