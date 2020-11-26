@@ -64,7 +64,7 @@ const Form = ({ type, title, ...props }) => {
 			<FormWrapper method="post">
 				{type === 'register' &&
 					<FormInput
-						name="nome"
+						name="name"
 						type="text"
 						onChange={handleChange}
 						value={user.name}

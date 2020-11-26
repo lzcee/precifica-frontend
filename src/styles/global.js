@@ -33,4 +33,25 @@ const FullBackground = styled.div`
 	}
 `;
 
-export { FullBackground };
+
+const Container = styled.div`
+	margin-left: 24px;
+	margin-right: 24px;
+
+	@media (min-width: 768px) {
+		margin-left: 48px;
+		margin-right: 48px;
+	}
+
+	@media (min-width: 1200px) {
+		margin-left: 96px;
+		margin-right: 96px;
+	}
+
+	@media (min-width: 1440px) {
+		margin-left: calc((100% - 1174px) / 2);
+		margin-right: calc((100% - 1174px) / 2);
+	}
+`;
+
+export { FullBackground, Container };

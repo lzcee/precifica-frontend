@@ -1,41 +1,5 @@
-/* Variables
-   ========================================================================== */
-:root {
-	--container-size: 24px;
-}
-
-@media (min-width: 768px) {
-	:root {
-		--container-size: 48px;
-	}
-}
-
-@media (min-width: 1200px) {
-	:root {
-		--container-size: 96px;
-	}
-}
-
-@media (min-width: 1440px) {
-	:root {
-		--container-size: calc((100% - 1174px) / 2);
-	}
-}
-
-/* Containers
-   ========================================================================== */
-
-.container {
-	margin-left: var(--container-size);
-	margin-right: var(--container-size);
-}
-
 /* Utils
    ========================================================================== */
-
-.desktop {
-	display: none;
-}
 
 a {
 	text-decoration: none;
@@ -48,16 +12,6 @@ h3,
 h4,
 p {
 	margin: 0;
-}
-
-@media (min-width: 768px) {
-	.desktop {
-		display: block;
-	}
-
-	.mobile {
-		display: none;
-	}
 }
 
 /* Typography

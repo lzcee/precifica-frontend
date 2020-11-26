@@ -1,13 +1,15 @@
 import Form from '../../components/sections/Form';
 import Logo from '../../components/reusables/Logo';
 
-import { FullBackground } from '../../styles/global';
+import { FullBackground, Container } from '../../styles/global';
 
 const Register = () => {
 	return (
 		<FullBackground>
-			<Logo />
-			<Form type="register" title="Cadastre-se" />
+			<Container>
+				<Logo />
+				<Form type="register" title="Cadastre-se" />
+			</Container>
 		</FullBackground>
 	)
 }
