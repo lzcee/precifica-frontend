@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 	padding: 46px;
 
 	@media(min-width: 768px) {
-		max-width: 400px;
+		min-width: 350px;
 	}
 `;
 
@@ -30,7 +30,7 @@ const Button = styled.button`
 	width: 100%;
 	border: none;
 	font-weight: bold;
-	background-image: linear-gradient(45deg,#23a6d5,#545454);
+	background-image: linear-gradient(45deg, rgba(253,90,45,1), rgba(253,187,45,1));
 	background-size: 150% 100%;
 	color: #ffffff;
 	border-radius: 4px;

@@ -1,9 +1,11 @@
 import Login from './Login';
 import Register from './Register';
+import Home from './Home';
 
 const pages = {
 	Login,
-	Register
+	Register,
+	Home
 }
 
 export default pages;
