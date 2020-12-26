@@ -67,12 +67,26 @@ const Form = ({ type, title, ...props }) => {
                     password: user.password,
                 };
                 setError("");
-                const response = await api.users.login(payload);
                 try {
-                    const data = await response.data;
+                    const response = await api.users.login(payload);
+                    const data = response.data;
                     login(data.name, data.id, data.token, history);
                 } catch (e) {
                     setError("Ops! E-mail/senha incorretos, tente novamente!");
+                }
+            } else if (type === "register") {
+                const payload = {
+                    name: user.name,
+                    email: user.email,
+                    password: user.password,
+                };
+                setError("");
+                try {
+                    const response = await api.users.register(payload);
+                    const data = response.data;
+                    login(data.name, data.id, data.token, history);
+                } catch (e) {
+                    setError("Ops! Não foi possível concluir o cadastro, tente novamente!");
                 }
             }
         }

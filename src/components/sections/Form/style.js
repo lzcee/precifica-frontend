@@ -50,7 +50,7 @@ const ErrorMessage = styled.p`
     width: 100%;
     font-weight: 700;
     color: #cc4b4b;
-    bottom: -20px;
+    bottom: -30px;
 `;
 
 const RegisterNow = styled.p`
