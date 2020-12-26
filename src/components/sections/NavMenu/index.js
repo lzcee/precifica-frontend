@@ -8,6 +8,7 @@ import {
 import { ImHome3 } from "react-icons/im";
 import { FaClipboardList, FaBox } from "react-icons/fa";
 import { BsGraphUp } from "react-icons/bs";
+import { RiLogoutBoxRLine } from "react-icons/ri";
 
 import { Nav, Wrap, ItemMenu } from "./style";
 
@@ -30,6 +31,10 @@ const NavMenu = ({ open }) => {
         <ItemMenu to={REPORTS_PATH}>
           <BsGraphUp />
           Relatórios
+        </ItemMenu>
+        <ItemMenu logout as="button">
+          <RiLogoutBoxRLine />
+          Sair
         </ItemMenu>
       </Wrap>
     </Nav>

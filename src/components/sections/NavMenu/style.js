@@ -30,6 +30,7 @@ export const ItemMenu = styled(NavLink)`
   color: #ffffff;
   font-size: 16px;
   transition: color 150ms linear;
+  cursor: pointer;
 
   svg {
     width: 20px;
@@ -68,6 +69,14 @@ export const ItemMenu = styled(NavLink)`
       }
     }
   }
+
+  ${({ logout }) => logout ? `
+	  background-color: transparent;
+	  border: none;
+	  position: absolute;
+	  width: 100%;
+	  bottom: 0;
+  ` : ''}
 `;
 
 export const Wrap = styled.div`
