@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { HOME_PATH, REQUESTS_PATH, PRODUCTS_PATH, REPORTS_PATH } from "../../../config/routing/paths";
+import { HOME_PATH, ORDER_PATH, PRODUCTS_PATH, REPORTS_PATH } from "../../../config/routing/paths";
 
 import UserContext from "../../../config/contexts/auth";
 
@@ -22,19 +22,19 @@ const NavMenu = ({ open }) => {
     return (
         <Nav open={open}>
             <Wrap>
-                <ItemMenu to={HOME_PATH}>
+                <ItemMenu exact to={HOME_PATH}>
                     <ImHome3 />
                     Home
                 </ItemMenu>
-                <ItemMenu to={REQUESTS_PATH}>
+                <ItemMenu exact to={ORDER_PATH}>
                     <FaClipboardList />
                     Pedidos
                 </ItemMenu>
-                <ItemMenu to={PRODUCTS_PATH}>
+                <ItemMenu exact to={PRODUCTS_PATH}>
                     <FaBox />
                     Produtos
                 </ItemMenu>
-                <ItemMenu to={REPORTS_PATH}>
+                <ItemMenu exact to={REPORTS_PATH}>
                     <BsGraphUp />
                     Relatórios
                 </ItemMenu>
