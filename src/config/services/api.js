@@ -13,6 +13,13 @@ const users = {
     },
 };
 
+const products = {
+    create(payload) {
+        return api.post("/products", payload);
+    },
+};
+
 export default {
     users,
+    products,
 };

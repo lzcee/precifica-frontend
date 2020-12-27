@@ -1,9 +1,10 @@
 import Layout from "../../components/sections/Layout";
+import CreateProduct from "../../components/sections/CreateProduct";
 
 const Product = () => {
     return (
         <Layout>
-            <div>Product</div>
+            <CreateProduct />
         </Layout>
     );
 };

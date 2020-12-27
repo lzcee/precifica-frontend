@@ -39,4 +39,36 @@ const Container = styled.div`
     }
 `;
 
-export { FullBackground, Container };
+const SectionTitle = styled.h2`
+    font-size: 1.25rem;
+    color: #192125;
+    margin-bottom: 2rem;
+
+    &:after {
+        content: "";
+        display: block;
+        margin-top: 2px;
+        width: 45px;
+        height: 3px;
+        background-color: #ff9324;
+    }
+`;
+
+const Button = styled.button`
+    width: 100%;
+    border: none;
+    font-weight: bold;
+    background-image: linear-gradient(45deg, rgba(253, 90, 45, 1), rgba(253, 187, 45, 1));
+    background-size: 150% 100%;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 150ms linear;
+
+    &:hover {
+        background-position: 100% 0;
+    }
+`;
+
+export { FullBackground, Container, SectionTitle, Button };
