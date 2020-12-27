@@ -15,4 +15,11 @@ export const Content = styled.div`
         left: 260px;
         min-height: 100%;
     }
+
+    @media (min-width: 1024px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: min-content;
+        gap: 35px;
+    }
 `;

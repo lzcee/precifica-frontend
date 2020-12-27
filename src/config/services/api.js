@@ -17,6 +17,12 @@ const products = {
     create(payload) {
         return api.post("/products", payload);
     },
+    list() {
+        return api.get("/products");
+    },
+    getOne(payload) {
+        return api.get(`/products/${payload}`);
+    },
 };
 
 export default {

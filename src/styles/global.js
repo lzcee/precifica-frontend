@@ -71,4 +71,28 @@ const Button = styled.button`
     }
 `;
 
-export { FullBackground, Container, SectionTitle, Button };
+const Table = styled.table`
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    color: #192125;
+
+    th,
+    td {
+        padding: 10px;
+    }
+
+    thead tr {
+        background-color: #d6d6d6;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #ffffff;
+    }
+
+    tbody tr:nth-child(odd) {
+        background-color: #ececec;
+    }
+`;
+
+export { FullBackground, Container, SectionTitle, Button, Table };
