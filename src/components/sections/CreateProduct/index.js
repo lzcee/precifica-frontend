@@ -25,14 +25,12 @@ const CreateProduct = () => {
     });
     const [error, setError] = useState("");
 
-    const handleClick = async (event) => {
-        console.log(JSON.stringify(product.inputs));
+    const handleClick = async () => {
         setError("");
         try {
             const response = await api.products.create(product);
-            console.log(response.data);
         } catch (e) {
-            setError("Ops! E-mail/senha incorretos, tente novamente!");
+            setError("Ops! Ocorreu um erro, tente novamente!");
         }
     };
 
@@ -70,70 +68,54 @@ const CreateProduct = () => {
                         name="inputName"
                         type="text"
                         placeholder="Nome do Insumo"
-                        onChange={(e) =>
+                        onChange={(e) => {
+                            let prevInputs = product.inputs;
+                            prevInputs[index].name = e.target.value;
                             setProduct({
                                 ...product,
-                                inputs: {
-                                    ...product.inputs,
-                                    [index]: {
-                                        ...product.inputs[index],
-                                        name: e.target.value,
-                                    },
-                                },
-                            })
-                        }
-                        value={product.inputs[index].name}
+                                inputs: prevInputs,
+                            });
+                        }}
                     />
                     <FormInput
                         name="totalPrice"
                         type="number"
                         placeholder="Preço Total"
-                        onChange={(e) =>
+                        onChange={(e) => {
+                            let prevInputs = product.inputs;
+                            prevInputs[index].totalPrice = e.target.value;
                             setProduct({
                                 ...product,
-                                inputs: {
-                                    ...product.inputs,
-                                    [index]: {
-                                        ...product.inputs[index],
-                                        totalPrice: e.target.value,
-                                    },
-                                },
-                            })
-                        }
-                        value={product.inputs[index].totalPrice}
+                                inputs: prevInputs,
+                            });
+                        }}
                     />
                     <FormInput
                         name="usedPercentage"
                         type="number"
                         placeholder="Porcentagem de Uso"
-                        onChange={(e) =>
+                        onChange={(e) => {
+                            let prevInputs = product.inputs;
+                            prevInputs[index].usedPercentage = e.target.value;
                             setProduct({
                                 ...product,
-                                inputs: {
-                                    ...product.inputs,
-                                    [index]: {
-                                        ...product.inputs[index],
-                                        usedPercentage: e.target.value,
-                                    },
-                                },
-                            })
-                        }
-                        value={product.inputs[index].usedPercentage}
+                                inputs: prevInputs,
+                            });
+                        }}
                     />
                 </InputsWrap>
             ))}
             <AddInput
                 onClick={() => {
+                    const prevInputs = product.inputs;
+                    prevInputs.push({
+                        name: "",
+                        totalPrice: "",
+                        usedPercentage: "",
+                    });
                     setProduct({
                         ...product,
-                        inputs: {
-                            ...product.inputs,
-                            [inputs.length]: {
-                                name: "",
-                                totalPrice: "",
-                                usedPercentage: "",
-                            },
-                        },
+                        inputs: prevInputs,
                     });
                     setInputs(inputs.concat(`input-${inputs.length}`));
                 }}
