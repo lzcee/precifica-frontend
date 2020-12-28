@@ -24,12 +24,12 @@ const CreateProduct = () => {
         ],
     });
     const [error, setError] = useState("");
-
+    console.log(product);
     const handleClick = async () => {
         setError("");
         try {
             const response = await api.products.create(product);
-            if (response.data) {
+            if (response.status === 201) {
                 setInputs(["input-0"]);
                 setProduct({
                     name: "",
@@ -91,6 +91,7 @@ const CreateProduct = () => {
                                 inputs: prevInputs,
                             });
                         }}
+                        value={product.inputs[index].name}
                     />
                     <FormInput
                         name="totalPrice"
@@ -104,6 +105,7 @@ const CreateProduct = () => {
                                 inputs: prevInputs,
                             });
                         }}
+                        value={product.inputs[index].totalPrice}
                     />
                     <FormInput
                         name="usedPercentage"
@@ -117,6 +119,7 @@ const CreateProduct = () => {
                                 inputs: prevInputs,
                             });
                         }}
+                        value={product.inputs[index].usedPercentage}
                     />
                 </InputsWrap>
             ))}
