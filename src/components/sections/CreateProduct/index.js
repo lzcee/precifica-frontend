@@ -29,6 +29,21 @@ const CreateProduct = () => {
         setError("");
         try {
             const response = await api.products.create(product);
+            if (response.data) {
+                setInputs(["input-0"]);
+                setProduct({
+                    name: "",
+                    userId: user.id,
+                    profitPercentage: "",
+                    inputs: [
+                        {
+                            name: "",
+                            totalPrice: "",
+                            usedPercentage: "",
+                        },
+                    ],
+                });
+            }
         } catch (e) {
             setError("Ops! Ocorreu um erro, tente novamente!");
         }

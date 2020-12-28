@@ -23,6 +23,9 @@ const products = {
     getOne(payload) {
         return api.get(`/products/${payload}`);
     },
+    delete(payload) {
+        return api.post(`/products/delete/${payload}`);
+    },
 };
 
 export default {

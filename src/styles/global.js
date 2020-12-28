@@ -56,18 +56,19 @@ const SectionTitle = styled.h2`
 
 const Button = styled.button`
     width: 100%;
-    border: none;
+    border: ${({ inverted }) => (inverted ? "1px solid #192125" : "none")};
     font-weight: bold;
-    background-image: linear-gradient(45deg, rgba(253, 90, 45, 1), rgba(253, 187, 45, 1));
+    background: ${({ inverted }) =>
+        inverted ? "transparent" : "linear-gradient(45deg, #fd5a2d, rgba(253, 187, 45, 1))"};
     background-size: 150% 100%;
-    color: #ffffff;
+    color: ${({ inverted }) => (inverted ? "#192125" : "#ffffff")};
     border-radius: 4px;
     padding: 12px;
     cursor: pointer;
     transition: all 150ms linear;
 
     &:hover {
-        background-position: 100% 0;
+        ${({ inverted }) => (inverted ? "border-color: #fd5a2d; color: #fd5a2d;" : "background-position: 100% 0;")};
     }
 `;
 
