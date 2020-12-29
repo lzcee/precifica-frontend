@@ -9,6 +9,11 @@ export const ModalWrapper = styled.div`
     width: 100%;
     height: 100%;
     background-color: #19212582;
+
+    @media (min-width: 768px) {
+        left: 260px;
+        width: calc(100% - 260px);
+    }
 `;
 
 export const Content = styled.div`

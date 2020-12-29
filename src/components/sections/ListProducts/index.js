@@ -7,7 +7,7 @@ import Modal from "../../reusables/Modal";
 import { Item, InputItem, FlexWrap } from "./style";
 
 const ListProducts = () => {
-    const { products, setProducts } = useContext(ProductsContext);
+    const { products, setProducts, removeProduct } = useContext(ProductsContext);
     const [modal, setModal] = useState(null);
 
     useEffect(() => {
@@ -34,15 +34,13 @@ const ListProducts = () => {
                     <Item>
                         <span>Insumos:</span>
                     </Item>
-                    <Item>
-                        {data.inputs.map((input) => (
-                            <InputItem>
-                                <span>- {input.name}:</span>
-                                <p>Preço Total: R${input.totalPrice}</p>
-                                <p>Porcentagem de Uso: {input.usedPercentage}%</p>
-                            </InputItem>
-                        ))}
-                    </Item>
+                    {data.inputs.map((input) => (
+                        <InputItem key={input.id}>
+                            <span>- {input.name}:</span>
+                            <p>Preço Total: R${input.totalPrice}</p>
+                            <p>Porcentagem de Uso: {input.usedPercentage}%</p>
+                        </InputItem>
+                    ))}
                 </Modal>
             );
         }
@@ -51,6 +49,7 @@ const ListProducts = () => {
     const deleteProduct = async (productId, productName) => {
         const response = await api.products.delete(productId);
         if (response.status === 200) {
+            removeProduct(productId);
             setModal(
                 <Modal open={setModal}>
                     <Item>

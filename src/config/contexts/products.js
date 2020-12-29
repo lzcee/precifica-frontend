@@ -9,8 +9,14 @@ const ProductsProvider = ({ children }) => {
         setProducts([...products, product]);
     };
 
+    const removeProduct = (productId) => {
+        setProducts(products.filter((product) => product.id !== productId));
+    };
+
     return (
-        <ProductsContext.Provider value={{ products, setProducts, saveProduct }}>{children}</ProductsContext.Provider>
+        <ProductsContext.Provider value={{ products, setProducts, saveProduct, removeProduct }}>
+            {children}
+        </ProductsContext.Provider>
     );
 };
 
