@@ -19,7 +19,7 @@ export const Content = styled.div`
     @media (min-width: 1024px) {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: min-content;
+        align-items: start;
         gap: 35px;
     }
 `;

@@ -24,7 +24,7 @@ const CreateProduct = () => {
         ],
     });
     const [error, setError] = useState("");
-    console.log(product);
+
     const handleClick = async () => {
         setError("");
         try {
