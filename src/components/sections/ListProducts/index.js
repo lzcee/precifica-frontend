@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { ProductsContext } from "../../../config/contexts/products";
 
 import api from "../../../config/services/api";
 import { Button, SectionTitle, Table } from "../../../styles/global";
@@ -6,7 +7,7 @@ import Modal from "../../reusables/Modal";
 import { Item, InputItem, FlexWrap } from "./style";
 
 const ListProducts = () => {
-    const [products, setProducts] = useState([]);
+    const { products, setProducts } = useContext(ProductsContext);
     const [modal, setModal] = useState(null);
 
     useEffect(() => {
@@ -15,7 +16,7 @@ const ListProducts = () => {
             setProducts(response.data.products);
         }
         fetchData();
-    }, [modal]);
+    }, []);
 
     const showDetails = async (productId) => {
         const response = await api.products.getOne(productId);

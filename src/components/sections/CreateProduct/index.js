@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import api from "../../../config/services/api";
 import UserContext from "../../../config/contexts/auth";
+import { ProductsContext } from "../../../config/contexts/products";
 
 import FormInput from "../../reusables/FormInput";
 import { FormWrapper, Label, InputsWrap, AddInput, ErrorMessage } from "./style";
@@ -10,6 +11,7 @@ import { GrAdd } from "react-icons/gr";
 
 const CreateProduct = () => {
     const { user } = useContext(UserContext);
+    const { saveProduct } = useContext(ProductsContext);
     const [inputs, setInputs] = useState(["input-0"]);
     const [product, setProduct] = useState({
         name: "",
@@ -30,6 +32,7 @@ const CreateProduct = () => {
         try {
             const response = await api.products.create(product);
             if (response.status === 201) {
+                saveProduct(response.data);
                 setInputs(["input-0"]);
                 setProduct({
                     name: "",
