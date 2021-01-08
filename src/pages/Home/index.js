@@ -1,9 +1,10 @@
 import Layout from "../../components/sections/Layout";
+import Updates from "../../components/sections/Updates";
 
 const Home = () => {
     return (
         <Layout>
-            <div>Home</div>
+            <Updates>Home</Updates>
         </Layout>
     );
 };

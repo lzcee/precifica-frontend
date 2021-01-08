@@ -2,6 +2,7 @@ import { useState, useContext, useEffect } from "react";
 import api from "../../../config/services/api";
 import UserContext from "../../../config/contexts/auth";
 import { ProductsContext } from "../../../config/contexts/products";
+import { OrdersContext } from "../../../config/contexts/orders";
 
 import Modal from "../../reusables/Modal";
 import {
@@ -23,6 +24,7 @@ import { GrAdd } from "react-icons/gr";
 const CreateOrder = () => {
     const { user } = useContext(UserContext);
     const { products, setProducts } = useContext(ProductsContext);
+    const { saveOrder } = useContext(OrdersContext);
 
     const [error, setError] = useState("");
     const [modal, setModal] = useState(null);
@@ -62,6 +64,7 @@ const CreateOrder = () => {
         try {
             const response = await api.orders.create(order);
             if (response.status === 201) {
+                saveOrder(response.data);
                 setProductsField(["input-0"]);
                 setListProducts([
                     {

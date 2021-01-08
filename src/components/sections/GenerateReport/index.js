@@ -76,7 +76,7 @@ const GenerateReport = () => {
                         Período: {new Date(initialDate).toLocaleDateString("pt-BR")} até{" "}
                         {new Date(finalDate).toLocaleDateString("pt-BR")}
                     </SectionTitle>
-                    <ResultTitle>Gastos Totais com insumos:</ResultTitle>
+                    <ResultTitle>Gastos Totais com Insumos:</ResultTitle>
                     <ResultContent>R$ {report.inputsTotal}</ResultContent>
                     <ResultTitle>Valor Total Recebido:</ResultTitle> <ResultContent>R$ {report.total}</ResultContent>
                     <ResultTitle>Lucro Obtido:</ResultTitle>
