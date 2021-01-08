@@ -39,7 +39,7 @@ export const Wrap = styled.div`
     padding: 40px;
     border-radius: 30px;
     background-color: #ffffff;
-    margin: 4rem auto 0 0;
+    margin: 30px auto 0 0;
 `;
 
 export const ResultTitle = styled.p`

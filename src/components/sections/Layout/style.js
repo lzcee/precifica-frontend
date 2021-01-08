@@ -9,6 +9,9 @@ export const Content = styled.div`
     padding: 24px;
     background-color: #f6f5fd;
     min-height: calc(100% - 58px);
+    display: grid;
+    align-items: start;
+    gap: 35px;
 
     @media (min-width: 768px) {
         top: 0;
@@ -16,10 +19,7 @@ export const Content = styled.div`
         min-height: 100%;
     }
 
-    @media (min-width: 1024px) {
-        display: grid;
+    @media (min-width: 1200px) {
         grid-template-columns: repeat(2, 1fr);
-        align-items: start;
-        gap: 35px;
     }
 `;
