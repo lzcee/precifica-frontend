@@ -19,7 +19,7 @@ const ListProducts = () => {
         if (products.length === 0) {
             fetchData();
         }
-    }, []);
+    }, [products.length, setProducts]);
 
     const showDetails = async (productId) => {
         const response = await api.products.getOne(productId);

@@ -43,8 +43,10 @@ const orders = {
     },
 };
 
-export default {
+const apiSettings = {
     users,
     products,
     orders,
 };
+
+export default apiSettings;

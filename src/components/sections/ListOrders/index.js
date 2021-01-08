@@ -19,7 +19,7 @@ const ListOrders = () => {
         if (orders.length === 0) {
             fetchData();
         }
-    }, []);
+    }, [orders.length, setOrders]);
 
     const showDetails = async (orderId) => {
         const response = await api.orders.getOne(orderId);

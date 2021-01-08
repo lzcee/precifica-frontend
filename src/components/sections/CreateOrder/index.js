@@ -3,7 +3,6 @@ import api from "../../../config/services/api";
 import UserContext from "../../../config/contexts/auth";
 import { ProductsContext } from "../../../config/contexts/products";
 
-import { Autocomplete } from "@material-ui/lab";
 import { FormWrapper, Label, InputsWrap, AddInput, ErrorMessage, Select, WrapSelect, Total } from "./style";
 import { SectionTitle, Button } from "../../../styles/global";
 
@@ -33,7 +32,7 @@ const CreateOrder = () => {
         if (products.length === 0) {
             fetchData();
         }
-    }, []);
+    }, [products.length, setProducts]);
 
     const handleClick = async () => {
         const productsIds = [];
@@ -94,7 +93,7 @@ const CreateOrder = () => {
                 <InputsWrap key={input}>
                     <WrapSelect
                         size="small"
-                        value={listProducts[index]}
+                        value={listProducts[index].productId === "" ? null : listProducts[index]}
                         onChange={(event, newValue) => selectProduct(newValue, index)}
                         options={products}
                         getOptionLabel={(product) => product.name}
