@@ -36,7 +36,32 @@ const CreateOrder = () => {
     }, []);
 
     const handleClick = async () => {
+        const productsIds = [];
+        listProducts.forEach((product) => {
+            console.log(product.productId);
+            if (product.productId !== "") {
+                productsIds.push(product.productId);
+            }
+        });
+        const order = {
+            productsIds,
+            userId: user.id,
+        };
         setError("");
+        try {
+            const response = await api.orders.create(order);
+            if (response.status === 201) {
+                setProductsField(["input-0"]);
+                setListProducts({
+                    name: "",
+                    productId: "",
+                    totalPrice: "",
+                });
+                setTotal(0);
+            }
+        } catch (e) {
+            setError("Ops! Ocorreu um erro, tente novamente!");
+        }
     };
 
     const selectProduct = (newValue, index) => {
@@ -68,6 +93,7 @@ const CreateOrder = () => {
             {productsField.map((input, index) => (
                 <InputsWrap key={input}>
                     <WrapSelect
+                        value={listProducts[index]}
                         onChange={(event, newValue) => selectProduct(newValue, index)}
                         options={products}
                         getOptionLabel={(product) => product.name}

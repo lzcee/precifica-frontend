@@ -28,7 +28,14 @@ const products = {
     },
 };
 
+const orders = {
+    create(payload) {
+        return api.post("/order", payload);
+    },
+};
+
 export default {
     users,
     products,
+    orders,
 };
