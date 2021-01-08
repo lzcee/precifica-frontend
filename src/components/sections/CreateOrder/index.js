@@ -93,6 +93,7 @@ const CreateOrder = () => {
             {productsField.map((input, index) => (
                 <InputsWrap key={input}>
                     <WrapSelect
+                        size="small"
                         value={listProducts[index]}
                         onChange={(event, newValue) => selectProduct(newValue, index)}
                         options={products}

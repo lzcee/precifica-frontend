@@ -63,6 +63,7 @@ export const ErrorMessage = styled.p`
 `;
 
 export const WrapSelect = styled(Autocomplete)`
+    padding: 0;
     .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
         border-color: #cecece;
         outline-width: 0;
@@ -83,7 +84,7 @@ export const Select = styled(TextField)`
     width: 100%;
     border: 2px solid transparent;
     border-radius: 4px;
-    padding: 10px 12px;
+    padding: 0;
 `;
 
 export const Total = styled.p`
