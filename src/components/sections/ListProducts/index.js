@@ -15,7 +15,10 @@ const ListProducts = () => {
             const response = await api.products.list();
             setProducts(response.data.products);
         }
-        fetchData();
+
+        if (products.length === 0) {
+            fetchData();
+        }
     }, []);
 
     const showDetails = async (productId) => {

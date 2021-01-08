@@ -1,9 +1,10 @@
+import CreateOrder from "../../components/sections/CreateOrder";
 import Layout from "../../components/sections/Layout";
 
 const Order = () => {
     return (
         <Layout>
-            <div>Order</div>
+            <CreateOrder />
         </Layout>
     );
 };
