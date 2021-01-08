@@ -92,3 +92,23 @@ export const Total = styled.p`
     font-size: 16px;
     margin: 12px 0 24px;
 `;
+
+export const Item = styled.p`
+    margin-bottom: 10px;
+
+    span {
+        font-weight: 700;
+    }
+`;
+
+export const InputItem = styled.div`
+    margin: 0 0 10px 20px;
+
+    span {
+        font-weight: 700;
+    }
+
+    p {
+        margin-left: 10px;
+    }
+`;

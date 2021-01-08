@@ -35,7 +35,7 @@ const ListOrders = () => {
                         <span>Preço Total dos Insumos:</span> R${data.inputsPrice}
                     </Item>
                     <Item>
-                        <span>Data de Criação:</span> {new Date(data.createdAt).toLocaleDateString("pt-BR")} às
+                        <span>Data de Criação:</span> {new Date(data.createdAt).toLocaleDateString("pt-BR")} às{" "}
                         {new Date(data.createdAt).toLocaleTimeString("pt-BR")}
                     </Item>
                     <Item>
