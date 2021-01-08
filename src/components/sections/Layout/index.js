@@ -2,9 +2,9 @@ import Header from "../Header";
 
 import { Content } from "./style";
 
-const Layout = ({ children }) => {
+const Layout = ({ children, className }) => {
     return (
-        <div>
+        <div className={className}>
             <Header />
             <Content>{children}</Content>
         </div>

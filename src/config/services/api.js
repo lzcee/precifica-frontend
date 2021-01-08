@@ -43,10 +43,17 @@ const orders = {
     },
 };
 
+const reports = {
+    get(payload) {
+        return api.get(`/reports?initialDate=${payload.initialDate}&finalDate=${payload.finalDate}`);
+    },
+};
+
 const apiSettings = {
     users,
     products,
     orders,
+    reports,
 };
 
 export default apiSettings;

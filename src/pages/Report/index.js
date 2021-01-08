@@ -1,10 +1,11 @@
-import Layout from "../../components/sections/Layout";
+import GenerateReport from "../../components/sections/GenerateReport";
+import { LayoutFull } from "./style";
 
 const Report = () => {
     return (
-        <Layout>
-            <div>Report</div>
-        </Layout>
+        <LayoutFull>
+            <GenerateReport />
+        </LayoutFull>
     );
 };
 

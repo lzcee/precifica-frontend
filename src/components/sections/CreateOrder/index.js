@@ -50,7 +50,6 @@ const CreateOrder = () => {
     const handleClick = async () => {
         const productsIds = [];
         listProducts.forEach((product) => {
-            console.log(product.productId);
             if (product.productId !== "") {
                 productsIds.push(product.productId);
             }
