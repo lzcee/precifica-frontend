@@ -32,6 +32,15 @@ const orders = {
     create(payload) {
         return api.post("/order", payload);
     },
+    list() {
+        return api.get("/order");
+    },
+    getOne(payload) {
+        return api.get(`/order/${payload}`);
+    },
+    delete(payload) {
+        return api.post(`/order/delete/${payload}`);
+    },
 };
 
 export default {
