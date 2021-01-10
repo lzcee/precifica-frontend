@@ -1,0 +1,52 @@
+{
+	"header": {
+		"home": "Home",
+		"orders": "Orders",
+		"products": "Products",
+		"reports": "Reports",
+		"languages": {
+			"pt": "Portuguese",
+			"en": "English"
+		},
+		"logout": "Logout"
+	},
+	"home": {
+		"title": "Hello",
+		"report": {
+			"title": "Total report to date",
+			"c1": "Total Spending on Inputs",
+			"c2": "Total Amount Received",
+			"c3": "Profit Obtained",
+			"cta": "View result by period"
+		},
+		"others": {
+			"title": "You can also",
+			"cta1": "Register an Order",
+			"cta2": "Register a Product"
+		}
+	},
+	"orders": {
+		"register": {
+			"title": "Register Order",
+			"products": "Products",
+			"select": "Select a Product",
+			"add": "Add Product",
+			"amount": "Amount",
+			"register": "Register",
+			"error": "Ops! There was an error, try again!"
+		},
+		"modal": {
+			"number": "Order Number",
+			"amount": "Amount",
+			"inputsPrice": "Total Price of Inputs",
+			"createdAt": "Creation Date",
+			"at": "at",
+			"products": {
+				"title": "Products",
+				"amount": "Amount",
+				"inputsPrice": "Input Price",
+				"profitPercentage": "Profit Percentage"
+			}
+		}
+	}
+}

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { NavLink } from "react-router-dom";
+import { Select } from "@material-ui/core";
 
 export const Nav = styled.nav`
     z-index: 15;
@@ -87,5 +88,23 @@ export const Wrap = styled.div`
 
     @media (min-width: 768px) {
         margin: 30px 0;
+    }
+`;
+
+export const SelectLocale = styled.select`
+    background-color: transparent;
+    box-sizing: border-box;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    position: absolute;
+    left: 24px;
+    bottom: 60px;
+    padding: 10px 4px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+
+    option {
+        color: #484848;
     }
 `;

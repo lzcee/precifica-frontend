@@ -1,5 +1,5 @@
 import { BrowserRouter, Switch } from "react-router-dom";
-
+import "./config/translations/i18n";
 import routes from "./config/routing/routes";
 import AppRoute from "./AppRoute";
 import { UserProvider } from "./config/contexts/auth";

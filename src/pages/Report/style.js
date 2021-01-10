@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Layout from "../../components/sections/Layout";
+import Layout from "../../components/reusables/Layout";
 
 export const LayoutFull = styled(Layout)`
     & > div {

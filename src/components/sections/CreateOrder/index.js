@@ -21,7 +21,10 @@ import { SectionTitle, Button } from "../../../styles/global";
 
 import { GrAdd } from "react-icons/gr";
 
+import { useTranslation } from "react-i18next";
+
 const CreateOrder = () => {
+    const { t } = useTranslation();
     const { user } = useContext(UserContext);
     const { products, setProducts } = useContext(ProductsContext);
     const { saveOrder } = useContext(OrdersContext);
@@ -76,34 +79,42 @@ const CreateOrder = () => {
                 setTotal(0);
                 setModal(
                     <Modal open={setModal}>
-                        <SectionTitle>Número do Pedido: {response.data.id}</SectionTitle>
+                        <SectionTitle>
+                            {t("orders.modal.number")}: {response.data.id}
+                        </SectionTitle>
                         <Item>
-                            <span>Preço Total:</span> R${response.data.totalPrice}
+                            <span>{t("orders.modal.amount")}:</span> R${response.data.totalPrice}
                         </Item>
                         <Item>
-                            <span>Preço Total dos Insumos:</span> R${response.data.inputsPrice}
+                            <span>{t("orders.modal.inputsPrice")}:</span> R${response.data.inputsPrice}
                         </Item>
                         <Item>
-                            <span>Data de Criação:</span>{" "}
-                            {new Date(response.data.createdAt).toLocaleDateString("pt-BR")} às{" "}
+                            <span>{t("orders.modal.createdAt")}:</span>{" "}
+                            {new Date(response.data.createdAt).toLocaleDateString("pt-BR")} {t("orders.modal.at")}{" "}
                             {new Date(response.data.createdAt).toLocaleTimeString("pt-BR")}
                         </Item>
                         <Item>
-                            <span>Produtos:</span>
+                            <span>{t("orders.modal.products.title")}:</span>
                         </Item>
                         {response.data.products.map((product) => (
                             <InputItem key={product.id}>
                                 <span>- {product.name}:</span>
-                                <p>Preço Total: R${product.totalPrice}</p>
-                                <p>Preço dos Insumos: R${product.inputsPrice}</p>
-                                <p>Porcentagem de Lucro: {product.profitPercentage}%</p>
+                                <p>
+                                    {t("orders.modal.products.amount")}: R${product.totalPrice}
+                                </p>
+                                <p>
+                                    {t("orders.modal.products.inputsPrice")}: R${product.inputsPrice}
+                                </p>
+                                <p>
+                                    {t("orders.modal.products.profitPercentage")}: {product.profitPercentage}%
+                                </p>
                             </InputItem>
                         ))}
                     </Modal>
                 );
             }
         } catch (e) {
-            setError("Ops! Ocorreu um erro, tente novamente!");
+            setError(`${t("orders.register.error")}`);
         }
     };
 
@@ -130,8 +141,8 @@ const CreateOrder = () => {
 
     return (
         <FormWrapper>
-            <SectionTitle>Registrar Pedido</SectionTitle>
-            <Label>Produtos</Label>
+            <SectionTitle>{t("orders.register.title")}</SectionTitle>
+            <Label>{t("orders.register.products")}</Label>
             {productsField.map((input, index) => (
                 <InputsWrap key={input}>
                     <WrapSelect
@@ -140,7 +151,9 @@ const CreateOrder = () => {
                         onChange={(event, newValue) => selectProduct(newValue, index)}
                         options={products}
                         getOptionLabel={(product) => product.name}
-                        renderInput={(params) => <Select {...params} label="Selecione um Produto" variant="outlined" />}
+                        renderInput={(params) => (
+                            <Select {...params} label={t("orders.register.select")} variant="outlined" />
+                        )}
                     />
                 </InputsWrap>
             ))}
@@ -157,11 +170,13 @@ const CreateOrder = () => {
                 }}
             >
                 <GrAdd />
-                Adicionar Produto
+                {t("orders.register.add")}
             </AddInput>
-            <Total>Total: R$ {total}</Total>
+            <Total>
+                {t("orders.register.amount")}: R$ {total}
+            </Total>
             <Button type="submit" onClick={handleClick}>
-                Registrar
+                {t("orders.register.register")}
             </Button>
             <ErrorMessage>{error}</ErrorMessage>
             {modal}

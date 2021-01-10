@@ -1,0 +1,52 @@
+{
+	"header": {
+		"home": "Home",
+		"orders": "Pedidos",
+		"products": "Produtos",
+		"reports": "Relatórios",
+		"languages": {
+			"pt": "Português",
+			"en": "Inglês"
+		},
+		"logout": "Sair"
+	},
+	"home": {
+		"title": "Olá",
+		"report": {
+			"title": "Relatório total até hoje",
+			"c1": "Gastos Totais com Insumos",
+			"c2": "Valor Total Recebido",
+			"c3": "Lucro Obtido",
+			"cta": "Ver o resultado por período"
+		},
+		"others": {
+			"title": "Você também pode",
+			"cta1": "Registrar um Pedido",
+			"cta2": "Cadastrar um Produto"
+		}
+	},
+	"orders": {
+		"register": {
+			"title": "Registrar Pedido",
+			"products": "Produtos",
+			"select": "Selecione um Produto",
+			"add": "Adicionar Produto",
+			"amount": "Total",
+			"register": "Registrar",
+			"error": "Ops! Ocorreu um erro, tente novamente!"
+		},
+		"modal": {
+			"number": "Número do Pedido",
+			"amount": "Preço Total",
+			"inputsPrice": "Preço Total dos Insumos",
+			"createdAt": "Data de Criação",
+			"at": "às",
+			"products": {
+				"title": "Produtos",
+				"amount": "Preço Total",
+				"inputsPrice": "Preço dos Insumos",
+				"profitPercentage": "Porcentagem de Lucro"
+			}
+		}
+	}
+}

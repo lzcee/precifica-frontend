@@ -1,4 +1,4 @@
-import Layout from "../../components/sections/Layout";
+import Layout from "../../components/reusables/Layout";
 import Updates from "../../components/sections/Updates";
 
 const Home = () => {

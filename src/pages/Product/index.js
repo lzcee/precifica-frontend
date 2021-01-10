@@ -1,4 +1,4 @@
-import Layout from "../../components/sections/Layout";
+import Layout from "../../components/reusables/Layout";
 import CreateProduct from "../../components/sections/CreateProduct";
 import ListProducts from "../../components/sections/ListProducts";
 

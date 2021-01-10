@@ -7,7 +7,10 @@ import UserContext from "../../../config/contexts/auth";
 import { SectionTitle, Button } from "../../../styles/global";
 import { Wrap, ResultTitle, ResultContent, Options } from "./style";
 
+import { useTranslation } from "react-i18next";
+
 const Updates = () => {
+    const { t } = useTranslation();
     const reportPayload = useMemo(() => {
         return {
             initialDate: "1990-01-01",
@@ -28,30 +31,32 @@ const Updates = () => {
     }, [reportPayload]);
     return (
         <section>
-            <SectionTitle>Olá, {user.name}!</SectionTitle>
+            <SectionTitle>
+                {t("home.title")}, {user.name}!
+            </SectionTitle>
             {report && (
                 <Wrap>
                     <SectionTitle>
-                        Relatório total até hoje ({new Date(reportPayload.finalDate).toLocaleDateString("pt-BR")})
+                        {t("home.report.title")} ({new Date(reportPayload.finalDate).toLocaleDateString("pt-BR")})
                     </SectionTitle>
-                    <ResultTitle>Gastos Totais com Insumos:</ResultTitle>
+                    <ResultTitle>{t("home.report.c1")}:</ResultTitle>
                     <ResultContent>R$ {report.inputsTotal}</ResultContent>
-                    <ResultTitle>Valor Total Recebido:</ResultTitle> <ResultContent>R$ {report.total}</ResultContent>
-                    <ResultTitle>Lucro Obtido:</ResultTitle>
+                    <ResultTitle>{t("home.report.c2")}:</ResultTitle> <ResultContent>R$ {report.total}</ResultContent>
+                    <ResultTitle>{t("home.report.c3")}:</ResultTitle>
                     <ResultContent>R$ {report.profit}</ResultContent>
                     <Button to={REPORTS_PATH} as={Link}>
-                        Ver o resultado por período
+                        {t("home.report.cta")}
                     </Button>
                 </Wrap>
             )}
             <Options>
-                <SectionTitle>Você também pode:</SectionTitle>
+                <SectionTitle>{t("home.others.title")}:</SectionTitle>
                 <Button inverted="true" to={PRODUCTS_PATH} as={Link}>
-                    Registrar um Pedido
+                    {t("home.others.cta1")}
                 </Button>{" "}
                 <span>ou</span>
                 <Button inverted="true" to={ORDER_PATH} as={Link}>
-                    Cadastrar um Produto
+                    {t("home.others.cta2")}
                 </Button>
             </Options>
         </section>
