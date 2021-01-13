@@ -47,6 +47,29 @@
 				"inputsPrice": "Preço dos Insumos",
 				"profitPercentage": "Porcentagem de Lucro"
 			}
+		},
+		"delete": {
+			"title": "Excluir Pedido",
+			"confirmation": "Tem certeza que deseja excluir o pedido de número",
+			"yes": "Sim",
+			"no": "Não",
+			"error": {
+				"part1": "Não foi possível excluir o pedido de número",
+				"part2": "Tente novamente mais tarde"
+			},
+			"success": {
+				"part1": "O pedido de número",
+				"part2": "foi excluído com sucesso"
+			}
+		},
+		"list": {
+			"title": "Lista de Pedidos",
+			"number": "Número",
+			"date": "Data",
+			"hour": "Hora",
+			"amount": "Preço Total",
+			"showMore": "Ver Detalhes",
+			"delete": "Excluir"
 		}
 	}
 }

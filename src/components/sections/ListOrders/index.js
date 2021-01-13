@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { OrdersContext } from "../../../config/contexts/orders";
 
 import api from "../../../config/services/api";
@@ -7,6 +8,7 @@ import Modal from "../../reusables/Modal";
 import { Item, InputItem, FlexWrap } from "./style";
 
 const ListOrders = () => {
+    const { t } = useTranslation();
     const { orders, setOrders, removeOrder } = useContext(OrdersContext);
     const [modal, setModal] = useState(null);
 
@@ -27,26 +29,35 @@ const ListOrders = () => {
         if (data.isAvaible) {
             setModal(
                 <Modal open={setModal}>
-                    <SectionTitle>Número do Pedido: {data.id}</SectionTitle>
+                    <SectionTitle>
+                        {t("orders.modal.number")}: {data.id}
+                    </SectionTitle>
                     <Item>
-                        <span>Preço Total:</span> R${data.totalPrice}
+                        <span>{t("orders.modal.amount")}:</span> R${data.totalPrice}
                     </Item>
                     <Item>
-                        <span>Preço Total dos Insumos:</span> R${data.inputsPrice}
+                        <span>{t("orders.modal.inputsPrice")}:</span> R${data.inputsPrice}
                     </Item>
                     <Item>
-                        <span>Data de Criação:</span> {new Date(data.createdAt).toLocaleDateString("pt-BR")} às{" "}
+                        <span>{t("orders.modal.createdAt")}:</span>{" "}
+                        {new Date(data.createdAt).toLocaleDateString("pt-BR")} {t("orders.modal.at")}{" "}
                         {new Date(data.createdAt).toLocaleTimeString("pt-BR")}
                     </Item>
                     <Item>
-                        <span>Produtos:</span>
+                        <span>{t("orders.modal.products.title")}:</span>
                     </Item>
                     {data.products.map((product) => (
                         <InputItem key={product.id}>
                             <span>- {product.name}:</span>
-                            <p>Preço Total: R${product.totalPrice}</p>
-                            <p>Preço dos Insumos: R${product.inputsPrice}</p>
-                            <p>Porcentagem de Lucro: {product.profitPercentage}%</p>
+                            <p>
+                                {t("orders.modal.products.amount")}: R${product.totalPrice}
+                            </p>
+                            <p>
+                                {t("orders.modal.products.inputsPrice")}: R${product.inputsPrice}
+                            </p>
+                            <p>
+                                {t("orders.modal.products.profitPercentage")}: {product.profitPercentage}%
+                            </p>
                         </InputItem>
                     ))}
                 </Modal>
@@ -61,17 +72,16 @@ const ListOrders = () => {
             setModal(
                 <Modal open={setModal}>
                     <Item>
-                        O pedido de número <span>"{orderId}"</span> foi excluído com sucesso!
+                        {t("orders.delete.success.part1")} <span>"{orderId}"</span> {t("orders.delete.success.part2")}!
                     </Item>
                 </Modal>
             );
         } else {
             setModal(
                 <Modal open={setModal}>
-                    <SectionTitle>Excluir Pedido</SectionTitle>
+                    <SectionTitle>{t("orders.delete.title")}</SectionTitle>
                     <Item>
-                        Não foi possível excluir o pedido de número <span>"{orderId}"</span>! Tente novamente mais
-                        tarde.
+                        {t("orders.delete.error.part1")} <span>"{orderId}"</span>! {t("orders.delete.error.part2")}.
                     </Item>
                 </Modal>
             );
@@ -81,16 +91,16 @@ const ListOrders = () => {
     const deleteOrderConfirmation = (orderId) => {
         setModal(
             <Modal open={setModal}>
-                <SectionTitle>Excluir Pedido</SectionTitle>
+                <SectionTitle>{t("orders.delete.title")}</SectionTitle>
                 <Item>
-                    Tem certeza que deseja excluir o pedido de número <span>"{orderId}"</span>?
+                    {t("orders.delete.confirmation")} <span>"{orderId}"</span>?
                 </Item>
                 <FlexWrap>
                     <Button inverted onClick={() => deleteOrder(orderId)}>
-                        Sim
+                        {t("orders.delete.yes")}
                     </Button>
                     <Button inverted onClick={() => setModal(null)}>
-                        Não
+                        {t("orders.delete.no")}
                     </Button>
                 </FlexWrap>
             </Modal>
@@ -99,14 +109,14 @@ const ListOrders = () => {
 
     return (
         <div>
-            <SectionTitle>Lista de Pedidos</SectionTitle>
+            <SectionTitle>{t("orders.list.title")}</SectionTitle>
             <Table>
                 <thead>
                     <tr>
-                        <th>Número</th>
-                        <th>Data</th>
-                        <th>Hora</th>
-                        <th>Preço Total</th>
+                        <th>{t("orders.list.number")}</th>
+                        <th>{t("orders.list.date")}</th>
+                        <th>{t("orders.list.hour")}</th>
+                        <th>{t("orders.list.amount")}</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -119,11 +129,11 @@ const ListOrders = () => {
                             <td>{new Date(order.createdAt).toLocaleTimeString("pt-BR")}</td>
                             <td>R${order.totalPrice}</td>
                             <td>
-                                <Button onClick={() => showDetails(order.id)}>Ver Detalhes</Button>
+                                <Button onClick={() => showDetails(order.id)}>{t("orders.list.showMore")}</Button>
                             </td>
                             <td>
                                 <Button inverted onClick={() => deleteOrderConfirmation(order.id, order.name)}>
-                                    Excluir
+                                    {t("orders.list.delete")}
                                 </Button>
                             </td>
                         </tr>

@@ -47,6 +47,29 @@
 				"inputsPrice": "Input Price",
 				"profitPercentage": "Profit Percentage"
 			}
+		},
+		"delete": {
+			"title": "Delete Order",
+			"confirmation": "Are you sure you want to delete the order number",
+			"yes": "Yes",
+			"no": "No",
+			"error": {
+				"part1": "Unable to delete order number",
+				"part2": "Try again later"
+			},
+			"success": {
+				"part1": "Order number",
+				"part2": "was successfully deleted"
+			}
+		},
+		"list": {
+			"title": "Orders List",
+			"number": "Number",
+			"date": "Date",
+			"hour": "Hour",
+			"amount": "Amount",
+			"showMore": "Show More",
+			"delete": "Delete"
 		}
 	}
 }
