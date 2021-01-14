@@ -15,11 +15,17 @@ const GenerateReport = () => {
     let oneMonthAgo = new Date();
     oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
 
-    const [initialDate, setInitialDate] = useState(oneMonthAgo.toISOString().split("T")[0]);
-    const [finalDate, setFinalDate] = useState(today.toISOString().split("T")[0]);
+    const [initialDate, setInitialDate] = useState(
+        `${oneMonthAgo.getFullYear()}-${("0" + (oneMonthAgo.getMonth() + 1)).slice(-2)}-${(
+            "0" + oneMonthAgo.getDate()
+        ).slice(-2)}`
+    );
+    const [finalDate, setFinalDate] = useState(
+        `${today.getFullYear()}-${("0" + (today.getMonth() + 1)).slice(-2)}-${("0" + today.getDate()).slice(-2)}`
+    );
     const [report, setReport] = useState(null);
     const [error, setError] = useState("");
-
+    console.log(finalDate);
     const validateDate = () => {
         if (initialDate <= finalDate) {
             return true;

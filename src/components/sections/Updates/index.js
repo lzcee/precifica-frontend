@@ -11,10 +11,13 @@ import { useTranslation } from "react-i18next";
 
 const Updates = () => {
     const { t } = useTranslation();
+    const today = new Date();
     const reportPayload = useMemo(() => {
         return {
             initialDate: "1990-01-01",
-            finalDate: new Date().toUTCString().split("T")[0],
+            finalDate: `${today.getFullYear()}-${("0" + (today.getMonth() + 1)).slice(-2)}-${(
+                "0" + today.getDate()
+            ).slice(-2)}`,
         };
     }, []);
     const [report, setReport] = useState(null);
@@ -37,7 +40,7 @@ const Updates = () => {
             {report && (
                 <Wrap>
                     <SectionTitle>
-                        {t("home.report.title")} ({new Date(reportPayload.finalDate).toLocaleDateString("pt-BR")})
+                        {t("home.report.title")} ({new Date().toLocaleDateString("pt-BR")})
                     </SectionTitle>
                     <ResultTitle>{t("home.report.c1")}:</ResultTitle>
                     <ResultContent>R$ {report.inputsTotal}</ResultContent>
