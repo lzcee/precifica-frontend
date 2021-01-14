@@ -6,7 +6,10 @@ import { Button, SectionTitle, Table } from "../../../styles/global";
 import Modal from "../../reusables/Modal";
 import { Item, InputItem, FlexWrap } from "./style";
 
+import { useTranslation } from "react-i18next";
+
 const ListProducts = () => {
+    const { t } = useTranslation();
     const { products, setProducts, removeProduct } = useContext(ProductsContext);
     const [modal, setModal] = useState(null);
 
@@ -29,19 +32,23 @@ const ListProducts = () => {
                 <Modal open={setModal}>
                     <SectionTitle>{data.name}</SectionTitle>
                     <Item>
-                        <span>Preço Total:</span> R${data.totalPrice}
+                        <span>{t("products.list.amount")}:</span> R${data.totalPrice}
                     </Item>
                     <Item>
-                        <span>Porcentagem de Lucro:</span> {data.profitPercentage}%
+                        <span>{t("products.register.profitPercentage")}:</span> {data.profitPercentage}%
                     </Item>
                     <Item>
-                        <span>Insumos:</span>
+                        <span>{t("products.list.inputs")}:</span>
                     </Item>
                     {data.inputs.map((input) => (
                         <InputItem key={input.id}>
                             <span>- {input.name}:</span>
-                            <p>Preço Total: R${input.totalPrice}</p>
-                            <p>Porcentagem de Uso: {input.usedPercentage}%</p>
+                            <p>
+                                {t("products.list.amount")}: R${input.totalPrice}
+                            </p>
+                            <p>
+                                {t("products.register.profitPercentage")}: {input.usedPercentage}%
+                            </p>
                         </InputItem>
                     ))}
                 </Modal>
@@ -56,16 +63,18 @@ const ListProducts = () => {
             setModal(
                 <Modal open={setModal}>
                     <Item>
-                        O produto <span>"{productName}"</span> foi excluído com sucesso!
+                        {t("products.delete.success.part1")} <span>"{productName}"</span>{" "}
+                        {t("products.delete.success.part2")}!
                     </Item>
                 </Modal>
             );
         } else {
             setModal(
                 <Modal open={setModal}>
-                    <SectionTitle>Excluir Produto</SectionTitle>
+                    <SectionTitle>{t("products.delete.title")}</SectionTitle>
                     <Item>
-                        Não foi possível excluir o produto <span>"{productName}"</span>! Tente novamente mais tarde.
+                        {t("products.delete.error.part1")} <span>"{productName}"</span>!{" "}
+                        {t("products.delete.error.part2")}.
                     </Item>
                 </Modal>
             );
@@ -77,14 +86,14 @@ const ListProducts = () => {
             <Modal open={setModal}>
                 <SectionTitle>Excluir Produto</SectionTitle>
                 <Item>
-                    Tem certeza que deseja excluir o produto <span>"{productName}"</span>?
+                    {t("products.delete.confirmation")} <span>"{productName}"</span>?
                 </Item>
                 <FlexWrap>
                     <Button inverted onClick={() => deleteProduct(productId, productName)}>
-                        Sim
+                        {t("products.delete.yes")}
                     </Button>
                     <Button inverted onClick={() => setModal(null)}>
-                        Não
+                        {t("products.delete.no")}
                     </Button>
                 </FlexWrap>
             </Modal>
@@ -93,12 +102,12 @@ const ListProducts = () => {
 
     return (
         <div>
-            <SectionTitle>Lista de Produtos</SectionTitle>
+            <SectionTitle>{t("products.list.title")}</SectionTitle>
             <Table>
                 <thead>
                     <tr>
-                        <th>Nome</th>
-                        <th>Preço Total</th>
+                        <th>{t("products.list.name")}</th>
+                        <th>{t("products.list.amount")}</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -109,11 +118,11 @@ const ListProducts = () => {
                             <td>{product.name}</td>
                             <td>R${product.totalPrice}</td>
                             <td>
-                                <Button onClick={() => showDetails(product.id)}>Ver Detalhes</Button>
+                                <Button onClick={() => showDetails(product.id)}>{t("products.list.showMore")}</Button>
                             </td>
                             <td>
                                 <Button inverted onClick={() => deleteProductConfirmation(product.id, product.name)}>
-                                    Excluir
+                                    {t("products.list.delete")}
                                 </Button>
                             </td>
                         </tr>

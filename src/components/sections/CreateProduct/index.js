@@ -9,7 +9,10 @@ import { SectionTitle, Button } from "../../../styles/global";
 
 import { GrAdd } from "react-icons/gr";
 
+import { useTranslation } from "react-i18next";
+
 const CreateProduct = () => {
+    const { t } = useTranslation();
     const { user } = useContext(UserContext);
     const { saveProduct } = useContext(ProductsContext);
     const [inputs, setInputs] = useState(["input-0"]);
@@ -48,13 +51,13 @@ const CreateProduct = () => {
                 });
             }
         } catch (e) {
-            setError("Ops! Ocorreu um erro, tente novamente!");
+            setError(`${t("products.register.error")}`);
         }
     };
 
     return (
         <FormWrapper>
-            <SectionTitle>Cadastrar Produto</SectionTitle>
+            <SectionTitle>{t("products.register.title")}</SectionTitle>
             <FormInput
                 name="name"
                 type="text"
@@ -65,7 +68,7 @@ const CreateProduct = () => {
                     })
                 }
                 value={product.name}
-                placeholder="Nome do Produto"
+                placeholder={t("products.register.name")}
             />
             <FormInput
                 name="profitPercentage"
@@ -77,7 +80,7 @@ const CreateProduct = () => {
                     })
                 }
                 value={product.profitPercentage}
-                placeholder="Porcentagem de Lucro"
+                placeholder={t("products.register.profitPercentage")}
             />
             <Label>Insumos</Label>
             {inputs.map((input, index) => (
@@ -85,7 +88,7 @@ const CreateProduct = () => {
                     <FormInput
                         name="inputName"
                         type="text"
-                        placeholder="Nome do Insumo"
+                        placeholder={t("products.register.input.name")}
                         onChange={(e) => {
                             let prevInputs = product.inputs;
                             prevInputs[index].name = e.target.value;
@@ -99,7 +102,7 @@ const CreateProduct = () => {
                     <FormInput
                         name="totalPrice"
                         type="number"
-                        placeholder="Preço Total"
+                        placeholder={t("products.register.input.amount")}
                         onChange={(e) => {
                             let prevInputs = product.inputs;
                             prevInputs[index].totalPrice = e.target.value;
@@ -113,7 +116,7 @@ const CreateProduct = () => {
                     <FormInput
                         name="usedPercentage"
                         type="number"
-                        placeholder="Porcentagem de Uso"
+                        placeholder={t("products.register.input.usedPercentage")}
                         onChange={(e) => {
                             let prevInputs = product.inputs;
                             prevInputs[index].usedPercentage = e.target.value;
@@ -142,10 +145,10 @@ const CreateProduct = () => {
                 }}
             >
                 <GrAdd />
-                Adicionar Insumo
+                {t("products.register.add")}
             </AddInput>
             <Button type="submit" onClick={handleClick}>
-                Cadastrar
+                {t("products.register.register")}
             </Button>
             <ErrorMessage>{error}</ErrorMessage>
         </FormWrapper>

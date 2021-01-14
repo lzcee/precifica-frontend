@@ -71,5 +71,42 @@
 			"showMore": "Ver Detalhes",
 			"delete": "Excluir"
 		}
+	},
+	"products": {
+		"register": {
+			"title": "Cadastrar Produto",
+			"name": "Nome do Produto",
+			"profitPercentage": "Porcentagem de Lucro",
+			"input": {
+				"name": "Nome do Insumo",
+				"amount": "Preço Total",
+				"usedPercentage": "Porcentagem de Uso"
+			},
+			"add": "Adicionar Insumo",
+			"register": "Cadastrar",
+			"error": "Ops! Ocorreu um erro, tente novamente!"
+		},
+		"list": {
+			"title": "Lista de Produtos",
+			"name": "Nome",
+			"amount": "Preço Total",
+			"showMore": "Ver Detalhes",
+			"delete": "Excluir",
+			"inputs": "Insumos"
+		},
+		"delete": {
+			"title": "Excluir Produto",
+			"confirmation": "Tem certeza que deseja excluir o produto",
+			"yes": "Sim",
+			"no": "Não",
+			"error": {
+				"part1": "Não foi possível excluir o produto",
+				"part2": "Tente novamente mais tarde"
+			},
+			"success": {
+				"part1": "O produto",
+				"part2": "foi excluído com sucesso"
+			}
+		}
 	}
 }
