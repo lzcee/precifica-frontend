@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { ProductsContext } from "../../../config/contexts/products";
+import UserContext from "../../../config/contexts/auth";
 
 import api from "../../../config/services/api";
 import { Button, SectionTitle, Table } from "../../../styles/global";
@@ -10,12 +11,13 @@ import { useTranslation } from "react-i18next";
 
 const ListProducts = () => {
     const { t } = useTranslation();
+    const { user } = useContext(UserContext);
     const { products, setProducts, removeProduct } = useContext(ProductsContext);
     const [modal, setModal] = useState(null);
 
     useEffect(() => {
         async function fetchData() {
-            const response = await api.products.list();
+            const response = await api.products.list(user.id);
             setProducts(response.data.products);
         }
 

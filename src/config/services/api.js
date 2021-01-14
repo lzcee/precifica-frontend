@@ -17,8 +17,8 @@ const products = {
     create(payload) {
         return api.post("/products", payload);
     },
-    list() {
-        return api.get("/products");
+    list(userId) {
+        return api.get(`/products/all/${userId}`);
     },
     getOne(payload) {
         return api.get(`/products/${payload}`);
@@ -32,8 +32,8 @@ const orders = {
     create(payload) {
         return api.post("/order", payload);
     },
-    list() {
-        return api.get("/order");
+    list(userId) {
+        return api.get(`/order/all/${userId}`);
     },
     getOne(payload) {
         return api.get(`/order/${payload}`);
@@ -44,8 +44,8 @@ const orders = {
 };
 
 const reports = {
-    get(payload) {
-        return api.get(`/reports?initialDate=${payload.initialDate}&finalDate=${payload.finalDate}`);
+    get(payload, userId) {
+        return api.get(`/reports?initialDate=${payload.initialDate}&finalDate=${payload.finalDate}&user=${userId}`);
     },
 };
 

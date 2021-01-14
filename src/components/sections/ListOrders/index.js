@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { useTranslation } from "react-i18next";
+import UserContext from "../../../config/contexts/auth";
 import { OrdersContext } from "../../../config/contexts/orders";
 
 import api from "../../../config/services/api";
@@ -9,12 +10,13 @@ import { Item, InputItem, FlexWrap } from "./style";
 
 const ListOrders = () => {
     const { t } = useTranslation();
+    const { user } = useContext(UserContext);
     const { orders, setOrders, removeOrder } = useContext(OrdersContext);
     const [modal, setModal] = useState(null);
 
     useEffect(() => {
         async function fetchData() {
-            const response = await api.orders.list();
+            const response = await api.orders.list(user.id);
             setOrders(response.data.orders);
         }
 

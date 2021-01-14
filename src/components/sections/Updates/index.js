@@ -14,7 +14,7 @@ const Updates = () => {
     const reportPayload = useMemo(() => {
         return {
             initialDate: "1990-01-01",
-            finalDate: new Date().toISOString().split("T")[0],
+            finalDate: new Date().toUTCString().split("T")[0],
         };
     }, []);
     const [report, setReport] = useState(null);
@@ -22,7 +22,7 @@ const Updates = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await api.reports.get(reportPayload);
+            const response = await api.reports.get(reportPayload, user.id);
             if (response.status === 200) {
                 setReport(response.data);
             }

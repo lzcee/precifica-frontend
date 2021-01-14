@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import api from "../../../config/services/api";
+import UserContext from "../../../config/contexts/auth";
 
 import { SectionTitle, Button } from "../../../styles/global";
 import { Label, ErrorMessage, FlexWrap, Title, Wrap, ResultTitle, ResultContent } from "./style";
@@ -9,6 +10,7 @@ import { useTranslation } from "react-i18next";
 
 const GenerateReport = () => {
     const { t } = useTranslation();
+    const { user } = useContext(UserContext);
     const today = new Date();
     let oneMonthAgo = new Date();
     oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
@@ -33,7 +35,7 @@ const GenerateReport = () => {
             };
             setError("");
             try {
-                const response = await api.reports.get(payload);
+                const response = await api.reports.get(payload, user.id);
                 if (response.status === 200) {
                     setReport(response.data);
                 }
