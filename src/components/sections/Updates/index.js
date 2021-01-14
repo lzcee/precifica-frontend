@@ -11,8 +11,8 @@ import { useTranslation } from "react-i18next";
 
 const Updates = () => {
     const { t } = useTranslation();
-    const today = new Date();
     const reportPayload = useMemo(() => {
+        const today = new Date();
         return {
             initialDate: "1990-01-01",
             finalDate: `${today.getFullYear()}-${("0" + (today.getMonth() + 1)).slice(-2)}-${(
@@ -31,7 +31,7 @@ const Updates = () => {
             }
         };
         fetchData();
-    }, [reportPayload]);
+    }, [reportPayload, user.id]);
     return (
         <section>
             <SectionTitle>

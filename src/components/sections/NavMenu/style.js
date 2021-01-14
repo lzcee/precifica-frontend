@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import { NavLink } from "react-router-dom";
-import { Select } from "@material-ui/core";
 
 export const Nav = styled.nav`
     z-index: 15;
