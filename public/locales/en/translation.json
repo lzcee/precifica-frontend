@@ -108,5 +108,25 @@
 				"part2": "was successfully deleted"
 			}
 		}
+	},
+	"reports": {
+		"title": "Sales Report",
+		"period": {
+			"title": "Select the period",
+			"initial": "Start",
+			"end": "End"
+		},
+		"cta": "Generate Report",
+		"report": {
+			"period": "Period",
+			"at": "to",
+			"inputAmount": "Total Spending on Inputs",
+			"receivedAmount": "Total Amount Received",
+			"profit": "Profit Obtained"
+		},
+		"errors": {
+			"e1": "Ops! An error has occurred, please try again!",
+			"e2": "Ops! The start date must be less than the end date!"
+		}
 	}
 }

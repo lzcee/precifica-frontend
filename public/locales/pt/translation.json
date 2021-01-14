@@ -108,5 +108,25 @@
 				"part2": "foi excluído com sucesso"
 			}
 		}
+	},
+	"reports": {
+		"title": "Relatório de Vendas",
+		"period": {
+			"title": "Selecione o período",
+			"initial": "Início",
+			"end": "Fim"
+		},
+		"cta": "Gerar Relatório",
+		"report": {
+			"period": "Período",
+			"at": "até",
+			"inputAmount": "Gastos Totais com Insumos",
+			"receivedAmount": "Valor Total Recebido",
+			"profit": "Lucro Obtido"
+		},
+		"errors": {
+			"e1": "Ops! Ocorreu um erro, tente novamente!",
+			"e2": "Ops! A data de início deve ser menor que a final!"
+		}
 	}
 }

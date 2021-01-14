@@ -5,7 +5,10 @@ import { SectionTitle, Button } from "../../../styles/global";
 import { Label, ErrorMessage, FlexWrap, Title, Wrap, ResultTitle, ResultContent } from "./style";
 import FormInput from "../../reusables/FormInput";
 
+import { useTranslation } from "react-i18next";
+
 const GenerateReport = () => {
+    const { t } = useTranslation();
     const today = new Date();
     let oneMonthAgo = new Date();
     oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
@@ -35,20 +38,20 @@ const GenerateReport = () => {
                     setReport(response.data);
                 }
             } catch (e) {
-                setError("Ops! Ocorreu um erro, tente novamente!");
+                setError(`${t("reports.errors.e1")}`);
             }
         } else {
-            setError("Ops! A data de início deve ser menor que a final!");
+            setError(`${t("reports.errors.e2")}`);
         }
     };
 
     return (
         <div>
-            <SectionTitle>Relatório de Vendas</SectionTitle>
-            <Title>Selecione o período:</Title>
+            <SectionTitle>{t("reports.title")}</SectionTitle>
+            <Title>{t("reports.period.title")}:</Title>
             <FlexWrap>
                 <div>
-                    <Label>Início</Label>
+                    <Label>{t("reports.period.initial")}</Label>
                     <FormInput
                         name="initialDate"
                         type="date"
@@ -57,7 +60,7 @@ const GenerateReport = () => {
                     />
                 </div>
                 <div>
-                    <Label>Fim</Label>
+                    <Label>{t("reports.period.end")}</Label>
                     <FormInput
                         name="finalDate"
                         type="date"
@@ -66,20 +69,21 @@ const GenerateReport = () => {
                     />
                 </div>
                 <div>
-                    <Button onClick={handleClick}>Gerar Relatório</Button>
+                    <Button onClick={handleClick}>{t("reports.cta")}</Button>
                 </div>
                 <ErrorMessage>{error}</ErrorMessage>
             </FlexWrap>
             {report && (
                 <Wrap>
                     <SectionTitle>
-                        Período: {new Date(initialDate).toLocaleDateString("pt-BR")} até{" "}
-                        {new Date(finalDate).toLocaleDateString("pt-BR")}
+                        {t("reports.report.period")}: {new Date(initialDate).toLocaleDateString("pt-BR")}{" "}
+                        {t("reports.report.at")} {new Date(finalDate).toLocaleDateString("pt-BR")}
                     </SectionTitle>
-                    <ResultTitle>Gastos Totais com Insumos:</ResultTitle>
+                    <ResultTitle>{t("reports.report.inputAmount")}:</ResultTitle>
                     <ResultContent>R$ {report.inputsTotal}</ResultContent>
-                    <ResultTitle>Valor Total Recebido:</ResultTitle> <ResultContent>R$ {report.total}</ResultContent>
-                    <ResultTitle>Lucro Obtido:</ResultTitle>
+                    <ResultTitle>{t("reports.report.receivedAmount")}:</ResultTitle>{" "}
+                    <ResultContent>R$ {report.total}</ResultContent>
+                    <ResultTitle>{t("reports.report.profit")}:</ResultTitle>
                     <ResultContent>R$ {report.profit}</ResultContent>
                 </Wrap>
             )}
