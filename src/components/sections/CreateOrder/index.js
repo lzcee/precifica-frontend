@@ -43,14 +43,14 @@ const CreateOrder = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await api.products.list();
+            const response = await api.products.list(user.id);
             setProducts(response.data.products);
         }
 
         if (products.length === 0) {
             fetchData();
         }
-    }, [products.length, setProducts]);
+    }, [products.length, setProducts, user.id]);
 
     const handleClick = async () => {
         const productsIds = [];
